@@ -16,6 +16,8 @@ const String _LAUNCH_SCHEME_YAHOO = 'ymail://';
 const String _LAUNCH_SCHEME_FASTMAIL = 'fastmail://';
 const String _LAUNCH_SCHEME_SUPERHUMAN = 'superhuman://';
 const String _LAUNCH_SCHEME_PROTONMAIL = 'protonmail://';
+const String _LAUNCH_SCHEME_GMX = 'gmx://';
+const String _LAUNCH_SCHEME_WEB = 'web://';
 
 /// Provides ability to query device for installed email apps and open those
 /// apps
@@ -100,6 +102,20 @@ class OpenMailApp {
       iosLaunchScheme: _LAUNCH_SCHEME_PROTONMAIL,
       composeData: ComposeData(
         base: _LAUNCH_SCHEME_PROTONMAIL + 'mailto:',
+      ),
+    ),
+    MailApp(
+      name: 'GMX',
+      iosLaunchScheme: _LAUNCH_SCHEME_GMX,
+      composeData: ComposeData(
+        base: _LAUNCH_SCHEME_GMX + 'mailto:',
+      ),
+    ),
+    MailApp(
+      name: 'WEB',
+      iosLaunchScheme: _LAUNCH_SCHEME_WEB,
+      composeData: ComposeData(
+        base: _LAUNCH_SCHEME_WEB + 'mailto:',
       ),
     ),
   ];
