@@ -149,7 +149,7 @@ class OpenMailAppPlugin : FlutterPlugin, MethodCallHandler {
             }, chooserTitle)
 
             val emailComposingIntents = mutableListOf<LabeledIntent>()
-            for (i in 1 until activitiesHandlingEmails.size) {
+            for (i in 0 until activitiesHandlingEmails.size) {
                 val activityHandlingEmail = activitiesHandlingEmails[i]
                 val packageName = activityHandlingEmail.activityInfo.packageName
                 if (packageName != "com.paypal.android.p2pmobile") {
@@ -249,7 +249,11 @@ class OpenMailAppPlugin : FlutterPlugin, MethodCallHandler {
             val mailApps = mutableListOf<App>()
             for (i in 0 until activitiesHandlingEmails.size) {
                 val activityHandlingEmail = activitiesHandlingEmails[i]
-                mailApps.add(App(activityHandlingEmail.loadLabel(packageManager).toString()))
+                val packageName = activityHandlingEmail.activityInfo.packageName
+                if (packageName != "com.paypal.android.p2pmobile") {
+                    val activityHandlingEmail = activitiesHandlingEmails[i]
+                    mailApps.add(App(activityHandlingEmail.loadLabel(packageManager).toString()))
+                }
             }
             mailApps
         } else {
